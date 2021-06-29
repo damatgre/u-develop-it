@@ -20,6 +20,11 @@ const db = mysql.createConnection(
     console.log('Connected to the election database.')
 );
 
+//return all data from candidates table, will return array of objects
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+  });
+
 //default response for any other request (not found)
 app.use((req, res) => {
     res.status(404).end();
